@@ -149,10 +149,10 @@ def main(args):
     morning_message = formatted_date + "\n" + days_left_str + "\n" + percentage_passed_str
     if full_moon_str:
         morning_message += "\n" + full_moon_str
-    if today_holiday_str:
-        morning_message += "\n" + "Today is: " + today_holiday_str
     if get_random_quote_str:
         morning_message += "\n" + get_random_quote_str
+    if today_holiday_str:
+        morning_message += "\n" + "Today is: " + today_holiday_str
 
     SendMessage(morning_message)
     return {
