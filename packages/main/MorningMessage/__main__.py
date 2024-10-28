@@ -10,6 +10,12 @@ def formatted_today_date(today):
     
     return formatted_date
 
+def get_random_quote():
+  response = requests.get('https://zenquotes.io/api/random')
+  data = response.json()[0]
+  quote = data['q'] + ' - ' + data['a']
+  return quote
+
 # Function to dynamically retrieve moon phase data for a given year
 def fetch_moon_phases(year):
     url = f"https://craigchamberlain.github.io/moon-data/api/moon-phase-data/{year}/"
@@ -137,6 +143,7 @@ def main(args):
     days_left_str, percentage_passed_str = year_progress_no_decimals_string(today)
     full_moon_str = FullMoonMsg(today)
     today_holiday_str = todayHoliday(today)
+    get_random_quote_str = get_random_quote()
 
     # Create morning message with conditionally including the full moon message
     morning_message = formatted_date + "\n" + days_left_str + "\n" + percentage_passed_str
@@ -144,6 +151,8 @@ def main(args):
         morning_message += "\n" + full_moon_str
     if today_holiday_str:
         morning_message += "\n" + "Today is: " + today_holiday_str
+    if get_random_quote_str:
+        morning_message += "\n" + "Today is: " + get_random_quote_str
 
     SendMessage(morning_message)
     return {"body": "OK"}
