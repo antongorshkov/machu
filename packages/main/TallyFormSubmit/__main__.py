@@ -27,8 +27,8 @@ def main(args):
     #Send a Message to WhatsApp Group
     url = "https://mywhinlite.p.rapidapi.com/sendmsg"
     
-    #GroupID = "120363318028761250@g.us" #MV Admins
-    GroupID = "120363348507910736@g.us" #Machukita Test Group
+    GroupID = "120363318028761250@g.us" #MV Admins
+    #GroupID = "120363348507910736@g.us" #Machukita Test Group
 
     payload = {
     	"phone_number_or_group_id": GroupID,
