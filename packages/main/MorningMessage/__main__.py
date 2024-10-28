@@ -155,4 +155,7 @@ def main(args):
         morning_message += "\n" + "Today is: " + get_random_quote_str
 
     SendMessage(morning_message)
-    return {"body": "OK"}
+    return {
+        "statusCode": 200,
+        "body": "ok"
+    }
