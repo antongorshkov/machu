@@ -7,3 +7,5 @@ packages:
     actions:
       - name: main
         runtime: "python:default"
+      - name: MorningMessage
+        runtime: "python:default"
