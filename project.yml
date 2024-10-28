@@ -9,3 +9,5 @@ packages:
         runtime: "python:default"
       - name: MorningMessage
         runtime: "python:default"
+      - name: TallyFormSubmit
+        runtime: "python:default"
