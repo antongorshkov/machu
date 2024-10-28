@@ -152,10 +152,10 @@ def main(args):
     if today_holiday_str:
         morning_message += "\n" + "Today is: " + today_holiday_str
     if get_random_quote_str:
-        morning_message += "\n" + "Today is: " + get_random_quote_str
+        morning_message += "\n" + get_random_quote_str
 
     SendMessage(morning_message)
     return {
         "statusCode": 200,
-        "body": "ok"
+        "body": json.dumps("ok")  # Explicitly make the body JSON serializable
     }
