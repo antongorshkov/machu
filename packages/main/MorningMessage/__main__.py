@@ -1,3 +1,4 @@
+import sys
 import requests
 import json
 import logging
@@ -145,6 +146,7 @@ def main(args):
     today = datetime.now().date()
     logging.info("Starting MorningMessage: {}".format(today))
     logging.critical("CRITICAL MESSAGE!")
+    print("Function started successfully - print statement", flush=True)
     #yesterday = today - timedelta(days=4)
     #today = datetime(year=2025, month=8, day=9).date()
 
