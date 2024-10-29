@@ -1,5 +1,13 @@
 import requests
+import json
+import logging
+
 from datetime import datetime, timedelta
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s:%(levelname)s:%(message)s"
+    )
 
 def formatted_today_date(today):
     # Get the current date
@@ -135,6 +143,7 @@ def FullMoonMsg(today):
 
 def main(args):
     today = datetime.now().date()
+    logging.info("Starting MorningMessage: {}".format(today))
     #yesterday = today - timedelta(days=4)
     #today = datetime(year=2025, month=8, day=9).date()
 
