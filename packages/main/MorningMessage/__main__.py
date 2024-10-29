@@ -144,6 +144,7 @@ def FullMoonMsg(today):
 def main(args):
     today = datetime.now().date()
     logging.info("Starting MorningMessage: {}".format(today))
+    logging.critical("CRITICAL MESSAGE!")
     #yesterday = today - timedelta(days=4)
     #today = datetime(year=2025, month=8, day=9).date()
 
@@ -168,3 +169,4 @@ def main(args):
         "statusCode": 200,
         "body": json.dumps("ok")  # Explicitly make the body JSON serializable
     }
+#main({})
