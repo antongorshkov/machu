@@ -1,3 +1,4 @@
+environment: LOG_DESTINATIONS:'[{"logtail":{"token":"gvXu8cxW2wujpERxoT1wLrXe"}}]'
 packages:
   - name: joke
     actions:
