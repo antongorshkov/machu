@@ -2,8 +2,14 @@ import sys
 import requests
 import json
 import logging
-
 from datetime import datetime, timedelta
+from logtail import LogtailHandler
+
+handler = LogtailHandler(source_token="TGmx4iCgwQ5RsFLrZCSLsju7")
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+logger.handlers = []
+logger.addHandler(handler)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -144,9 +150,8 @@ def FullMoonMsg(today):
 
 def main(args):
     today = datetime.now().date()
-    logging.info("Starting MorningMessage: {}".format(today))
-    logging.critical("CRITICAL MESSAGE!")
-    print("Function started successfully - print statement", flush=True)
+
+    logger.info("Starting MorningMessage: {}".format(today))
     #yesterday = today - timedelta(days=4)
     #today = datetime(year=2025, month=8, day=9).date()
 
@@ -166,7 +171,9 @@ def main(args):
     if today_holiday_str:
         morning_message += "\n" + "Today is: " + today_holiday_str
 
+    logger.info('Sending Morning Message: ' +morning_message )
     SendMessage(morning_message)
+
     return {
         "statusCode": 200,
         "body": json.dumps("ok")  # Explicitly make the body JSON serializable
