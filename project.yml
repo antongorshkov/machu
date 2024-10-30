@@ -4,11 +4,12 @@ packages:
       - name: joke
         runtime: "python:default"
   - name: main
+    environment:
+      LOG_DESTINATIONS: '[{"papertrail":{"token":"gvXu8cxW2wujpERxoT1wLrXe"}}]'
     actions:
       - name: main
         runtime: "python:default"
       - name: MorningMessage
         runtime: "python:default"
-        environment: LOG_DESTINATIONS:'[{"logtail":{"token":"gvXu8cxW2wujpERxoT1wLrXe"}}]'
       - name: TallyFormSubmit
         runtime: "python:default"
